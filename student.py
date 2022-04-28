@@ -40,7 +40,8 @@ class Piggy(PiggyParent):
                 "s": ("Shy", self.shy),
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
-                "q": ("Quit", self.quit)
+                "q": ("Quit", self.quit),
+                "l": ("Lacroix",self.lacroix )
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -55,7 +56,13 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
+    def lacroix(self):
+      self.fwd()
+      time.sleep(2)
+      self.stop()
 
+
+  
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
