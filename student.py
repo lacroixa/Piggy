@@ -57,7 +57,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def lacroix(self):
-      for square in range 4:
+      for square in range(4):
         self.fwd()
         time.sleep(2)
         self.stop()
