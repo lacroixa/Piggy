@@ -70,8 +70,12 @@ class Piggy(PiggyParent):
         # TODO: check to see if it's safe before dancing
         
         # lower-ordered example...
-        self.turn_by_deg(360)
-        self.turn_by_deg(-360)
+        self.right(primary=90,counter=-90)
+        time.sleep(1)
+        self.stop
+        self.left(primary=90, counter=-90)
+        time.sleep(1)
+        self.stop
         self.fwd()
         time.sleep(1)
         self.stop()
