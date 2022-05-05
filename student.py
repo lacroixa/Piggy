@@ -64,12 +64,27 @@ class Piggy(PiggyParent):
         self.turn_by_deg(90)
 
 
+    def safe_to_dance(self):
+      self.servo(1000)
+      time.sleep(.2)
+      self.read_distance()
+      if self.read_distance() <= 300:
+        return False
+      self.servo(2000) 
+      time.sleep(2)
+      self.read_distance()
+      if self.read_distance() <= 300:
+        return False
+      else:
+        return True
+
+
   
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
-        
-        # lower-ordered example...
+      self.safe_to_dance()
+      if self.safe_to_dance() == True
         self.right(primary=90,counter=-90)
         time.sleep(1)
         self.stop()
@@ -81,6 +96,8 @@ class Piggy(PiggyParent):
         self.stop()
         self.back()
         time.sleep(1)
+        self.stop()
+      else:
         self.stop()
 
     def safe_to_dance(self):
