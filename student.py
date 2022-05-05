@@ -112,7 +112,7 @@ class Piggy(PiggyParent):
         self.fwd()
         time.sleep(.5)
       else:
-      self.stop()
+        self.stop()
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
