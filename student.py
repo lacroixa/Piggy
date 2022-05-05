@@ -41,7 +41,8 @@ class Piggy(PiggyParent):
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
-                "l": ("Lacroix",self.lacroix )
+                "l": ("Lacroix",self.lacroix ),
+                "m": ("Move", self.move)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -104,14 +105,13 @@ class Piggy(PiggyParent):
         self.deg_fwd(720)
         self.stop()
 
-    def example_move(self):
-        """this is an example dance move that should be replaced by student-created content"""
-        self.right() # start rotating right
-        time.sleep(1) # turn for a second
-        self.stop() # stop
-        self.servo(1000) # look right
-        time.sleep(.25) # give your head time to move
-        self.servo(2000) # look left
+    def move(self):
+      while self.read_distance() >= 500:
+        self.read_distance()
+        self.fwd()
+        time.sleep(.5)
+    else:
+      self.stop()
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
