@@ -106,11 +106,12 @@ class Piggy(PiggyParent):
         self.stop()
 
     def move(self):
+      self.servo(self.MIDPOINT)
       while self.read_distance() >= 500:
         self.read_distance()
         self.fwd()
         time.sleep(.5)
-    else:
+      else:
       self.stop()
 
     def scan(self):
