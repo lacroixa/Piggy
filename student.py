@@ -65,7 +65,7 @@ class Piggy(PiggyParent):
 
 
     def safe_to_dance(self):
-      for checking in range(4)
+      for checking in range(4):
         print("checking if its safe to dance")
         self.servo(1000)
         time.sleep(.2)
