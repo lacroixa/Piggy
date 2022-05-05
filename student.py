@@ -65,21 +65,22 @@ class Piggy(PiggyParent):
 
 
     def safe_to_dance(self):
-      print("checking if its safe to dance")
-      self.servo(1000)
-      time.sleep(.2)
-      self.read_distance()
-      if self.read_distance() <= 300:
-        print("too close to dance")
-        return False
-      self.servo(2000) 
-      time.sleep(2)
-      self.read_distance()
-      if self.read_distance() <= 300:
-        print("too close to dance")
-        return False
-      else:
-        return True
+      for checking in range(4)
+        print("checking if its safe to dance")
+        self.servo(1000)
+        time.sleep(.2)
+        self.read_distance()
+        if self.read_distance() <= 300:
+          print("too close to dance")
+          return False
+        self.servo(2000) 
+        time.sleep(2)
+        self.read_distance()
+        if self.read_distance() <= 300:
+          print("too close to dance")
+          return False
+        self.turn_by_deg(90)
+      return True
 
 
   
