@@ -141,7 +141,7 @@ class Piggy(PiggyParent):
           self.fwd()
           time.sleep(1)
           self.stop()
-          self.turn_by_deg(-90)
+          self.turn_by_deg(-45)
                   
 
     def scan(self):
