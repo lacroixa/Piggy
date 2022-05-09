@@ -43,7 +43,8 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "l": ("Lacroix",self.lacroix ),
                 "m": ("Move", self.move),
-                "t": ("Move and Turn", self.move_and_turn)
+                "t": ("Move and Turn", self.move_and_turn),
+                "b": ("Move around box", self.move_around_box)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -122,6 +123,23 @@ class Piggy(PiggyParent):
         if self.read_distance() <= 500:
           self.stop()
           self.turn_by_deg(180)
+
+    def move_around_box(self):
+      while True:
+        self.servo(self.MIDPOINT)
+        self.fwd()
+        if self.read_distance() <= 500:
+          self.stop()
+          self.servo(1000)
+          self.turn_by_deg(90)
+          while self.read_distance() <=500:
+            self.fwd()
+          self.servo(self.MIDPOINT)  
+          self.fwd()
+          time.sleep(2)
+          self.stop()
+          self.turn_by_deg(-90)
+          
         
 
     def scan(self):
