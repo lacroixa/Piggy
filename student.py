@@ -42,7 +42,8 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "l": ("Lacroix",self.lacroix ),
-                "m": ("Move", self.move)
+                "m": ("Move", self.move),
+                "t": ("Move and Turn", self.move_and_turn)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -113,6 +114,15 @@ class Piggy(PiggyParent):
         time.sleep(.5)
       else:
         self.stop()
+
+    def move_and_turn(self):
+      while true:
+        self.servo(self.MIDPOINT)
+        self.fwd()
+        if self.read_distance() <= 500:
+          slf.stop()
+          self.turn_by_deg(90)
+        
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
