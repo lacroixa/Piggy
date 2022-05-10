@@ -145,6 +145,7 @@ class Piggy(PiggyParent):
           self.servo(2000)
           if self.read_distance() <= 300:
             self.turn_by_deg(45)
+          self.turn_by_deg(45)
 
             
             
