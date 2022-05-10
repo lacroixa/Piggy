@@ -149,7 +149,7 @@ class Piggy(PiggyParent):
               self.turn_by_deg(45)
               safe = True
             else:
-              safe = True
+              safe = False
             
             
                   
