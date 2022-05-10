@@ -152,7 +152,7 @@ class Piggy(PiggyParent):
               self.stop
               safe = True
             else:
-              self.turn_by_deg(-45)
+              self.turn_by_deg(-90)
               safe = False
 
             
