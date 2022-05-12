@@ -158,9 +158,9 @@ class Piggy(PiggyParent):
     def check_and_move_around_box(self):
       safe = True
       self.servo(2000)
-      self.read_distance() = left_distance
+      self.read_distance(left_distance)
       self.servo(1000)
-      self.read_distance() = right_distance
+      self.read_distance(right_distance)
       if right_distance < left_distance:
         while True:
           self.servo(self.MIDPOINT)
