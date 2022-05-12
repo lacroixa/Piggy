@@ -161,7 +161,7 @@ class Piggy(PiggyParent):
       self.read_distance() = left_distance
       self.servo(1000)
       self.read_distance() = right_distance
-      if right_distance < left_distance
+      if right_distance < left_distance:
         while True:
           self.servo(self.MIDPOINT)
           self.fwd()
