@@ -44,8 +44,7 @@ class Piggy(PiggyParent):
                 "l": ("Lacroix",self.lacroix ),
                 "m": ("Move", self.move),
                 "t": ("Move and Turn", self.move_and_turn),
-                "b": ("Move around box", self.move_around_box),
-                "cb": ("Check box and move around", self.check_and_move_around_box)
+                "b": ("Move around box", self.move_around_box)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -155,68 +154,14 @@ class Piggy(PiggyParent):
               self.turn_by_deg(-90)
               safe = False
 
-    def check_and_move_around_box(self):
-      safe = True
+    def check_box(self):
       self.servo(2000)
-      self.read_distance(left_distance)
-      self.servo(1000)
-      self.read_distance(right_distance)
-      if right_distance < left_distance:
-        while True:
-          self.servo(self.MIDPOINT)
-          self.fwd()
-          if self.read_distance() <= 300:
-            self.stop()
-            self.servo(2500)
-            self.turn_by_deg(60)
-            while self.read_distance() <=500:
-              self.fwd()
-              if self.read_distance() <=300:
-                self.stop()
-                self.turn_by_deg(15)
-            self.fwd()
-            time.sleep(1)
-            self.stop()
-            self.turn_by_deg(-45)
-            self.servo(2500)
-            while safe:
-              if self.read_distance() <= 300:
-                self.turn_by_deg(90)
-                self.fwd()
-                time.sleep(1)
-                self.stop
-                safe = True
-              else:
-                self.turn_by_deg(-90)
-                safe = False
-          else:
-            while True:
-              self.servo(self.MIDPOINT)
-              self.fwd()
-              if self.read_distance() <= 300:
-                self.stop()
-                self.servo(500)
-                self.turn_by_deg(-60)
-                while self.read_distance() <=500:
-                  self.fwd()
-                  if self.read_distance() <=300:
-                    self.stop()
-                    self.turn_by_deg(-15)
-                self.fwd()
-                time.sleep(1)
-                self.stop()
-                self.turn_by_deg(45)
-                self.servo(500)
-                while safe:
-                  if self.read_distance() <= 300:
-                    self.turn_by_deg(-90)
-                    self.fwd()
-                    time.sleep(1)
-                    self.stop
-                    safe = True
-                  else:
-                    self.turn_by_deg(90)
-                    safe = False
+      time.sleep(1)
+      self.stop()
+      while self.read_distance() >=400:
+        return self.get_heading()
+        self.servo(get_heading - 100)
+
 
 
 
