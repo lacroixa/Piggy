@@ -188,11 +188,38 @@ class Piggy(PiggyParent):
 
     def move_and_look(self):
       while True:
-        self.fwd()
+        while self.read_distance() > 500:
+          self.fwd()
+          self.servo(2000)
+          time.sleep(.5)
+          self.servo(1000)
+          time.sleep(.5)
+        self.around_wall()
+
+    def around_wall(self):
+      self.servo(2000)
+      left = self.read_distance()
+      time.sleep(.5)
+      self.servo(1000)
+      right = self.read_distance()
+      time.sleep(.5)
+      if right > left:
+        self.turn_by_deg(90)
         self.servo(2000)
-        time.sleep(.5)
+        self.fwd
+        if self.read_distance > 650:
+          time.sleep(2)
+          self.stop()
+          self.turn_by_deg(-90)
+      else:
+        self.turn_by_deg(-90)
         self.servo(1000)
-        time.sleep(.5)
+        self.fwd
+        if self.read_distance > 650:
+          time.sleep(2)
+          self.stop()
+          self.turn_by_deg(90)
+        
 
 
 
