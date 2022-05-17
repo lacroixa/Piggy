@@ -190,7 +190,9 @@ class Piggy(PiggyParent):
       while True:
         self.fwd()
         self.servo(2000)
+        time.sleep(.5)
         self.servo(1000)
+        time.sleep(.5)
 
 
 
