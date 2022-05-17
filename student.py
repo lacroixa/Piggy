@@ -44,7 +44,8 @@ class Piggy(PiggyParent):
                 "l": ("Lacroix",self.lacroix ),
                 "m": ("Move", self.move),
                 "t": ("Move and Turn", self.move_and_turn),
-                "b": ("Move around box", self.move_around_box)
+                "b": ("Move around box", self.move_around_box),
+                "ml":("Move and look", self.move_and_look)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -185,13 +186,11 @@ class Piggy(PiggyParent):
                 self.turn_by_deg(90)
                 safe = False
 
-    def check_box(self):
-      self.servo(2000)
-      time.sleep(1)
-      self.stop()
-      while self.read_distance() >=400:
-        return self.get_heading()
-        self.servo(get_heading - 100)
+    def move_and_look(self):
+      while True:
+        self.fwd()
+        self.servo(2000)
+        self.servo(1000)
 
 
 
