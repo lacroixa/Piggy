@@ -197,7 +197,7 @@ class Piggy(PiggyParent):
         self.around_wall()
 
     def around_wall(self):
-      slf.stop()
+      self.stop()
       self.servo(2000)
       left = self.read_distance()
       time.sleep(.5)
