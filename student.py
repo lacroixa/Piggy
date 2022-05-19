@@ -45,7 +45,8 @@ class Piggy(PiggyParent):
                 "m": ("Move", self.move),
                 "t": ("Move and Turn", self.move_and_turn),
                 "b": ("Move around box", self.move_around_box),
-                "ml":("Move and look", self.move_and_look)
+                "ml":("Move and look", self.move_and_look),
+                "sw": ("Move and swerve", self.move_and_swerve)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -196,6 +197,16 @@ class Piggy(PiggyParent):
           time.sleep(.5)
         self.around_wall()
 
+    def move_and_swerve(self):
+      while True:
+        while self.read_distance() > 500:
+          self.fwd()
+          self.servo(2000)
+          time.sleep(.5)
+          self.servo(1000)
+          time.sleep(.5)
+        self.swerve()
+
     def around_wall(self):
       self.stop()
       self.servo(2000)
@@ -220,7 +231,46 @@ class Piggy(PiggyParent):
           time.sleep(2)
           self.stop()
           self.turn_by_deg(90)
+
+    def swerve(self):
+      self.stop()
+      self.servo(2000)
+      left = self.read_distance()
+      time.sleep(.5)
+      self.servo(1000)
+      right = self.read_distance()
+      time.sleep(.5)
+      if right > left:
+        self.servo(2000)
+        while self.read_distance() > 150
+          self.right(primary=90,counter=10)
+        self.stop()
+        self.right()
+        time.sleep(.2)
+        self.stop()
+        while self.read_distance() > 1000:
+          self.fwd()
+        time.sleep(1.5)
+        self.stop
+        while self.read_distance() > 1000:
+          self.left(primary=90, counter=10)
+      else:
+        self.servo(1000)
+        while self.read_distance() > 150
+          self.left(primary=90,counter=10)
+        self.stop()
+        self.right()
+        time.sleep(.2)
+        self.stop()
+        while self.read_distance() > 1000:
+          self.fwd()
+        time.sleep(1.5)
+        self.stop
+        while self.read_distance() > 1000:
+          self.right(primary=90, counter=10)
         
+          
+      
 
 
 
