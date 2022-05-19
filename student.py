@@ -199,7 +199,7 @@ class Piggy(PiggyParent):
 
     def move_and_swerve(self):
       while True:
-        while self.read_distance() > 500:
+        while self.read_distance() > 700:
           self.fwd()
           self.servo(2000)
           time.sleep(.5)
@@ -242,8 +242,11 @@ class Piggy(PiggyParent):
       time.sleep(.5)
       if right > left:
         self.servo(2000)
+        self.right(primary=90,counter=10)
+        time.sleep(.3)
+        self.stop()
         while self.read_distance() > 150:
-          self.right(primary=90,counter=10)
+          self.fwd()
         self.stop()
         self.right()
         time.sleep(.2)
@@ -256,8 +259,9 @@ class Piggy(PiggyParent):
           self.left(primary=90, counter=10)
       else:
         self.servo(1000)
+        self.left(primary=90,counter=10)
         while self.read_distance() > 150:
-          self.left(primary=90,counter=10)
+          self.fwd()
         self.stop()
         self.right()
         time.sleep(.2)
