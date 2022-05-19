@@ -202,9 +202,11 @@ class Piggy(PiggyParent):
         while self.read_distance() > 700:
           self.fwd()
           self.servo(2000)
-          time.sleep(.5)
+          time.sleep(.2)
+          self.servo(self.MIDPOINT)
+          time.sleep(.2)
           self.servo(1000)
-          time.sleep(.5)
+          time.sleep(.2)
         self.swerve()
 
     def around_wall(self):
