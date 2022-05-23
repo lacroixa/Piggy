@@ -245,7 +245,21 @@ class Piggy(PiggyParent):
       self.servo(self.MIDPOINT)
       mid = self.read_distance()
       time.sleep(.5)
-      
+      if mid > right or mid > left:
+        if right > left:
+          self.right(primary=90,counter=20)
+          time.sleep(.3)
+          self.stop()
+        else:
+          self.left(primary=90,counter=20)
+          time.sleep(.3)
+          self.stop()
+      elif right > left:
+        self.around_wall()
+        
+
+      else:
+        self.around_wall()
       
       '''if right > left:
         self.servo(2000)
