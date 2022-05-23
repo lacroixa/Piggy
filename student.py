@@ -252,7 +252,7 @@ class Piggy(PiggyParent):
           self.stop()
         else:
           self.left(primary=90,counter=20)
-          time.sleep(.3)
+          time.sleep(.5)
           self.stop()
       elif right > left:
         self.around_wall()
