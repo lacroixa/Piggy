@@ -252,17 +252,17 @@ class Piggy(PiggyParent):
       if mid > right or mid > left:
         if right > left:
           self.right(primary=90,counter=20)
-          time.sleep(.5)
+          time.sleep(1)
           self.stop()
           self.left(primary=90,counter=20)
-          time.sleep(.5)
+          time.sleep(1)
           self.stop
         else:
           self.left(primary=90,counter=20)
-          time.sleep(.5)
+          time.sleep(1)
           self.stop()
           self.right(primary=90,counter=20)
-          time.sleep(.5)
+          time.sleep(1)
           self.stop()
       elif right > left:
         self.around_wall()
