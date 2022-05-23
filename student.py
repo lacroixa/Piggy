@@ -256,7 +256,7 @@ class Piggy(PiggyParent):
           self.stop()
           self.left(primary=90,counter=20)
           time.sleep(.5)
-          elf.stop
+          self.stop
         else:
           self.left(primary=90,counter=20)
           time.sleep(.5)
